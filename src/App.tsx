@@ -29,7 +29,7 @@ function App() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  return jobsCount ? <Continents jobsCount={jobsCount} /> : <h2>Loading...</h2>;
+  return <Continents jobsCount={jobsCount} />;
 }
 
 export default App;
