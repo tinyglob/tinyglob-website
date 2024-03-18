@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-import AfricaPng from "../assets/africa.png";
-import AsiaPng from "../assets/asia.png";
-import AustraliaPng from "../assets/australia.png";
-import EuropePng from "../assets/europe.png";
-import NorthAmericaPng from "../assets/north-america.png";
-import SouthAmericaPng from "../assets/south-america.png";
+import AfricaPng from "../assets/continents-quick/africa.png";
+import AsiaPng from "../assets/continents-quick/asia.png";
+import AustraliaPng from "../assets/continents-quick/australia.png";
+import EuropePng from "../assets/continents-quick/europe.png";
+import NorthAmericaPng from "../assets/continents-quick/north-america.png";
+import SouthAmericaPng from "../assets/continents-quick/south-america.png";
 
 interface IContinents {
   jobsCount: Record<string, number> | null;
