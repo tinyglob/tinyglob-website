@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { VideoFeed } from "../components/VideoFeed";
 
 // TODO: Do we want to display an image of selected continent?
 // import AfricaPng from "../assets/africa.png";
@@ -13,7 +14,7 @@ export const Continent = () => {
   const location = useLocation();
   const [countries, setCountries] = useState([]);
 
-  const continent = location.pathname.split("/")[1].toLocaleLowerCase()
+  const continent = location.pathname.split("/")[1].toLocaleLowerCase();
 
   const fetchCountries = async () => {
     try {
@@ -44,7 +45,7 @@ export const Continent = () => {
 
   return (
     <div>
-      <h1>{continent}</h1>
+      <h1 style={{ margin: 0 }}>{continent}</h1>
       <ul>
         {countries &&
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,6 +53,7 @@ export const Continent = () => {
             return (
               <li>
                 {country.title} in {country.country}, {country.city}
+                <VideoFeed />
               </li>
             );
           })}
