@@ -23,51 +23,73 @@ export const Continents = ({ jobsCount }: IContinents) => {
       route: "/south-america",
       image: SouthAmericaPng,
     },
-    { continent: "Europe", route: "/europe", image: EuropePng },
+    {
+      continent: "Europe",
+      route: "/europe",
+      image: EuropePng,
+    },
 
-    { continent: "Africa", route: "/africa", image: AfricaPng },
-    { continent: "Asia", route: "/asia", image: AsiaPng },
-    { continent: "Australia", route: "/australia", image: AustraliaPng },
+    {
+      continent: "Africa",
+      route: "/africa",
+      image: AfricaPng,
+    },
+    {
+      continent: "Asia",
+      route: "/asia",
+      image: AsiaPng,
+    },
+    {
+      continent: "Australia",
+      route: "/australia",
+      image: AustraliaPng,
+    },
   ];
 
   return (
     <>
-      <h2>CareerHub</h2>
+      <h2>TinyGlob</h2>
       <br />
       <ul
         style={{
           listStyleType: "none",
-          display: "flex",
-          justifyContent: 'center',
-          maxWidth: '700px',
-          margin: '0 auto',
-          flexWrap: 'wrap',
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          margin: "0 auto",
+          maxWidth: "1000px",
           gap: "3rem",
           padding: "0",
         }}
       >
         {continentsArr.map((continentObj) => (
           <li key={continentObj.route}>
-            <div style={{marginBottom: '1rem'}}>{continentObj.continent}</div>
+            <div style={{ marginBottom: "2rem", textAlign: "center" }}>
+              {continentObj.continent}
+            </div>
             <Link to={continentObj.route}>
-              <div style={{ position: 'relative' }}>
+              <div style={{ position: "relative" }}>
                 <img
                   src={continentObj.image}
                   alt={continentObj.continent}
-                  width={180}
+                  width={300}
                 />
-                {jobsCount ?  (
-                                  <span style={{
-                                    position: 'absolute',
-                                    backgroundColor: 'black',
-                                    width: '25px',
-                                    borderRadius: '50px',
-                                    top: '35%',
-                                    left: '30%',
-                                    transform: 'translate(-35%, -30%)'
-                                  }}>
-                                    {jobsCount[continentObj.route.split("/")[1]] || 0}
-                                  </span>
+                {jobsCount ? (
+                  <span
+                    style={{
+                      position: "absolute",
+                      textAlign: "center",
+                      backgroundColor: "#e0e0e0",
+                      boxShadow:
+                        "30px 30px 29px #a8a8a8 -30px -30px 29px #ffffff",
+                      width: "25px",
+                      borderRadius: "50px",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-35%, -30%)",
+                    }}
+                  >
+                    {jobsCount[continentObj.route.split("/")[1]] || 0}
+                  </span>
                 ) : null}
               </div>
             </Link>
