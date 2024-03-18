@@ -18,7 +18,7 @@ export const Continent = () => {
   const fetchCountries = async () => {
     try {
       const response = await fetch(
-        `https://whycareer-backend-production-d8e4.up.railway.app/jobs/continent/${continent}`
+        `https://tinyglob-backend-production.up.railway.app/jobs/continent/${continent}`
       );
 
       if (!response.ok) {

@@ -8,7 +8,7 @@ function App() {
   const fetcherJobsCount = async () => {
     try {
       const response = await fetch(
-        "https://whycareer-backend-production-d8e4.up.railway.app/jobs"
+        "https://tinyglob-backend-production.up.railway.app/jobs"
       );
 
       if (!response.ok) {
