@@ -1,0 +1,10 @@
+.home-list-of-continents {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 850px;
+  margin: 0 auto;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  gap: 2rem;
+}
