@@ -12,7 +12,7 @@ export const Continent = () => {
   const location = useLocation();
   const [countries, setCountries] = useState([]);
 
-  const continent = location.pathname.split("/")[1].toLocaleLowerCase()
+  const continent = location.pathname.split("/")[1].toLocaleLowerCase();
 
   const getCurrentContinent = () => {
     switch (continent) {
