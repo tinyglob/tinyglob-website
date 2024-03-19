@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import AfricaPng from "../assets/continents-quick/africa.png";
 import AsiaPng from "../assets/continents-quick/asia.png";
@@ -7,11 +8,11 @@ import EuropePng from "../assets/continents-quick/europe.png";
 import NorthAmericaPng from "../assets/continents-quick/north-america.png";
 import SouthAmericaPng from "../assets/continents-quick/south-america.png";
 
-interface IContinents {
-  jobsCount: Record<string, number> | null;
-}
+export const JobsOnContinents = () => {
+  const [jobsCount, setJobsCount] = useState<Record<string, number> | null>(
+    null
+  );
 
-export const Continents = ({ jobsCount }: IContinents) => {
   const continentsArr = [
     {
       continent: "North America",
@@ -46,20 +47,46 @@ export const Continents = ({ jobsCount }: IContinents) => {
     },
   ];
 
+  const fetcherJobsCount = async () => {
+    try {
+      const response = await fetch(
+        "https://tinyglob-backend-production.up.railway.app/jobs"
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const json = await response.json();
+      return json;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    fetcherJobsCount()
+      .then((data) => setJobsCount(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   return (
     <>
       <h2>TinyGlob</h2>
       <br />
-      <ul style={{
-        display: "flex",
-        flexWrap: "wrap",
-        maxWidth: "800px",
-        margin: "0 auto",
-        justifyContent: "center",
-        listStyle: "none",
-        padding: "0",
-        gap: "3rem",
-      }}>
+      <ul
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          maxWidth: "800px",
+          margin: "0 auto",
+          justifyContent: "center",
+          listStyle: "none",
+          padding: "0",
+          gap: "3rem",
+        }}
+      >
         {continentsArr.map((continentObj) => (
           <li key={continentObj.route}>
             <div style={{ marginBottom: "2rem", textAlign: "center" }}>

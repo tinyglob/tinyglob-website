@@ -1,17 +1,23 @@
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Continent } from "./routes/Continent.tsx";
+import "./index.css";
+
+import { JobsOnContinents } from "./routes/JobsOnContinents.tsx";
+import { JobsOnContinent } from "./routes/JobsOnContinent.tsx";
+import { JobsOnCountry } from "./routes/JobsOnCountry.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <JobsOnContinents />,
   },
   {
     path: "/:continent",
-    element: <Continent />,
+    element: <JobsOnContinent />,
+  },
+  {
+    path: "/:continent/:country",
+    element: <JobsOnCountry />,
   },
 ]);
 
