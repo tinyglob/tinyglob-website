@@ -1,13 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { VideoFeed } from "../components/VideoFeed";
+import { IJobItem } from "../types";
 
 export const CountryFeed = () => {
   const location = useLocation();
-  const [countryFeed, setCountryFeed] = useState([]);
+  const [countryFeed, setCountryFeed] = useState<IJobItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const country = location.pathname.split("/")[2].toLocaleLowerCase();
-
-  console.log("country", country);
 
   const fetcherJobsCount = async () => {
     try {
@@ -29,14 +30,28 @@ export const CountryFeed = () => {
 
   useEffect(() => {
     fetcherJobsCount()
-      .then((data) => setCountryFeed(data))
-      .catch((error) => console.error("Error fetching data:", error));
+      .then((data: IJobItem[]) => {
+        setCountryFeed(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
-      {countryFeed.map((country) => {
-        return <h2>{country.title}</h2>;
-      })}
+      {countryFeed.map((country) => (
+        <div key={country.title}>
+          <h2>{country.title}</h2>
+          <VideoFeed />
+        </div>
+      ))}
     </>
   );
 };

@@ -19,7 +19,6 @@ export const VideoFeed = () => {
         container.scrollTo({
           top: nextScrollTop,
           behavior: "smooth",
-
         });
       };
 
@@ -38,6 +37,9 @@ export const VideoFeed = () => {
         height: "100vh",
         overflow: "hidden",
         scrollSnapType: "y mandatory",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {[...Array(10)].map((_, index) => (

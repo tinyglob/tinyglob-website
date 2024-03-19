@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "../index.css";
 
 import AfricaPng from "../assets/continents-quick/africa.png";
 import AsiaPng from "../assets/continents-quick/asia.png";
@@ -98,7 +99,7 @@ export const Home = () => {
                   src={continentObj.image}
                   alt={continentObj.continent}
                   width={230}
-                  style={{opacity: jobsCount ? 1 : 0.2 }}
+                  style={{ opacity: jobsCount ? 1 : 0.2 }}
                 />
                 {jobsCount ? (
                   <span

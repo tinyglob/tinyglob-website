@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/file";
 
 export const VideoItem = ({}) => {
   const videoRef = useRef<HTMLDivElement>(null);
@@ -24,8 +24,9 @@ export const VideoItem = ({}) => {
 
   return (
     <div ref={videoRef} style={{ marginBottom: "20px" }}>
+      {/* <div style={{ marginBottom: "20px" }}> */}
       <ReactPlayer
-        url="costco.mp4"
+        url={"/costco.mp4"}
         width={400}
         height={700}
         playing={isPlaying}

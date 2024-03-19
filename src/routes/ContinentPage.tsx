@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ICountryData } from "../types";
 
 import AfricaPng from "../assets/continents-quick/africa.png";
 import AsiaPng from "../assets/continents-quick/asia.png";
@@ -7,10 +8,6 @@ import AustraliaPng from "../assets/continents-quick/australia.png";
 import EuropePng from "../assets/continents-quick/europe.png";
 import NorthAmericaPng from "../assets/continents-quick/north-america.png";
 import SouthAmericaPng from "../assets/continents-quick/south-america.png";
-
-interface ICountryData {
-  [key: string]: number;
-}
 
 export const ContinentPage = () => {
   const location = useLocation();
