@@ -2,19 +2,37 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { VideoFeed } from "../components/VideoFeed";
 
-// TODO: Do we want to display an image of selected continent?
-// import AfricaPng from "../assets/africa.png";
-// import AsiaPng from "../assets/asia.png";
-// import AustraliaPng from "../assets/australia.png";
-// import EuropePng from "../assets/europe.png";
-// import NorthAmericaPng from "../assets/north-america.png";
-// import SouthAmericaPng from "../assets/south-america.png";
+import AfricaPng from "../assets/continents-quick/africa.png";
+import AsiaPng from "../assets/continents-quick/asia.png";
+import AustraliaPng from "../assets/continents-quick/australia.png";
+import EuropePng from "../assets/continents-quick/europe.png";
+import NorthAmericaPng from "../assets/continents-quick/north-america.png";
+import SouthAmericaPng from "../assets/continents-quick/south-america.png";
 
 export const Continent = () => {
   const location = useLocation();
   const [countries, setCountries] = useState([]);
 
   const continent = location.pathname.split("/")[1].toLocaleLowerCase();
+
+  const getCurrentContinent = () => {
+    switch (continent) {
+      case 'africa':
+        return AfricaPng;
+      case 'asia':
+        return AsiaPng;
+      case 'australia':
+        return AustraliaPng;
+      case 'europe':
+        return EuropePng;
+      case 'north-america':
+        return NorthAmericaPng;
+      case 'south-america':
+        return SouthAmericaPng;
+      default:
+        return null;
+    }
+  }
 
   const fetchCountries = async () => {
     try {
@@ -44,20 +62,24 @@ export const Continent = () => {
   }, []);
 
   return (
-    <div>
-      <h1 style={{ margin: 0 }}>{continent}</h1>
-      <ul>
-        {countries &&
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          countries.map((country: any) => {
-            return (
-              <li>
+    <div style={{ position: "relative" }}>
+      <img
+        src={getCurrentContinent()}
+        style={{ position: "fixed", top: "0", left: "0", zIndex: "-1", width: "30%" }}
+        alt={continent}
+      />
+      <div>
+        <h1>{continent}</h1>
+        <ul style={{listStyle: 'none'}}>
+          {countries &&
+            countries.map((country) => (
+              <li key={country.title}>
                 {country.title} in {country.country}, {country.city}
                 <VideoFeed />
               </li>
-            );
-          })}
-      </ul>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 };
