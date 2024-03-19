@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { VideoFeed } from "../components/VideoFeed";
 
 import AfricaPng from "../assets/continents-quick/africa.png";
 import AsiaPng from "../assets/continents-quick/asia.png";
@@ -65,7 +64,7 @@ export const Continent = () => {
     <div style={{ position: "relative" }}>
       <img
         src={getCurrentContinent()}
-        style={{ position: "fixed", top: "0", left: "0", zIndex: "-1", width: "30%" }}
+        style={{ position: "fixed", top: "0", left: "0", zIndex: "-1", width: "40%", opacity: "0.3" }}
         alt={continent}
       />
       <div>
@@ -74,8 +73,8 @@ export const Continent = () => {
           {countries &&
             countries.map((country) => (
               <li key={country.title}>
-                {country.title} in {country.country}, {country.city}
-                <VideoFeed />
+                {/* {country.title} in {country.country}, {country.city} */}
+                COUNTRY: {country.country}
               </li>
             ))}
         </ul>
