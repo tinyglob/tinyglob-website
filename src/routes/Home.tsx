@@ -8,120 +8,120 @@ import EuropePng from "../assets/continents-quick/europe.png";
 import NorthAmericaPng from "../assets/continents-quick/north-america.png";
 import SouthAmericaPng from "../assets/continents-quick/south-america.png";
 
+import './Home.css';
+import Header from "../components/Header";
+
 const CONTINENTS = [
   {
-    continent: "North America",
+    name: "North America",
     route: "/north-america",
     image: NorthAmericaPng,
   },
   {
-    continent: "Europe",
+    name: "Europe",
     route: "/europe",
     image: EuropePng,
   },
   {
-    continent: "Asia",
+    name: "Asia",
     route: "/asia",
     image: AsiaPng,
   },
   {
-    continent: "South America",
+    name: "South America",
     route: "/south-america",
     image: SouthAmericaPng,
   },
-
   {
-    continent: "Africa",
+    name: "Africa",
     route: "/africa",
     image: AfricaPng,
   },
   {
-    continent: "Australia",
+    name: "Australia",
     route: "/australia",
     image: AustraliaPng,
   },
 ];
 
 export const Home = () => {
-  const [jobsCount, setJobsCount] = useState<Record<string, number> | null>(
-    null
-  );
-
-  const fetcherJobsCount = async () => {
-    try {
-      const response = await fetch(
-        "https://tinyglob-backend-production.up.railway.app/jobs"
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-
-      const json = await response.json();
-      return json;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      return null;
-    }
-  };
+  const [totalCountOfJobs, setTotalCountOfJobs] = useState<Record<string, number> | null>(null);
 
   useEffect(() => {
+    const fetcherJobsCount = async () => {
+      try {
+        const response = await fetch(
+          "https://tinyglob-backend-production.up.railway.app/jobs"
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const json = await response.json();
+        return json;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        return null;
+      }
+    };
+
     fetcherJobsCount()
-      .then((data) => setJobsCount(data))
+      .then((data) => setTotalCountOfJobs(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   return (
     <>
-      <h2>TinyGlob</h2>
-      <br />
-      <ul
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          maxWidth: "800px",
-          margin: "0 auto",
-          justifyContent: "center",
-          listStyle: "none",
-          padding: "0",
-          gap: "3rem",
-        }}
-      >
-        {CONTINENTS.map((continentObj) => (
-          <li key={continentObj.route}>
-            <div style={{ marginBottom: "2rem", textAlign: "center" }}>
-              {continentObj.continent}
-            </div>
-            <Link to={continentObj.route}>
-              <div style={{ position: "relative" }}>
-                <img
-                  src={continentObj.image}
-                  alt={continentObj.continent}
-                  width={230}
-                  style={{opacity: jobsCount ? 1 : 0.2 }}
-                />
-                {jobsCount ? (
-                  <span
-                    style={{
-                      position: "absolute",
-                      textAlign: "center",
-                      backgroundColor: "#e0e0e0",
-                      boxShadow:
-                        "30px 30px 29px #a8a8a8 -30px -30px 29px #ffffff",
-                      width: "25px",
-                      borderRadius: "50px",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-35%, -30%)",
-                    }}
-                  >
-                    {jobsCount[continentObj.route.split("/")[1]]}
-                  </span>
-                ) : null}
+      <Header />
+      <ul className="home-list-of-continents">
+        {CONTINENTS.map((continent) => {
+          const jobCount = totalCountOfJobs ? totalCountOfJobs[continent.route.split("/")[1]] || 0 : 0;
+          const opacity = jobCount === 0 ? 0.2 : 1;
+          return (
+            <li key={continent.route}>
+              <div style={{ marginBottom: "2rem", textAlign: "center" }}>
+                {continent.name}
               </div>
-            </Link>
-          </li>
-        ))}
+              {jobCount === 0 ? (
+                <img
+                  src={continent.image}
+                  alt={continent.name}
+                  width={230}
+                  style={{ transition: 'opacity 2s', opacity }}
+                />
+              ) : (
+                <Link to={continent.route} style={{ textDecoration: "none" }}>
+                  <div style={{ position: "relative" }}>
+                    <img
+                      src={continent.image}
+                      alt={continent.name}
+                      width={230}
+                    />
+                    {totalCountOfJobs ? (
+                      <span
+                        style={{
+                          position: "absolute",
+                          textAlign: "center",
+                          backgroundColor: "#e0e0e0",
+                          boxShadow:
+                            "30px 30px 29px #a8a8a8 -30px -30px 29px #ffffff",
+                          width: "25px",
+                          borderRadius: "50px",
+                          top: "35%",
+                          left: "30%",
+                          transform: "translate(-35%, -30%)",
+                        }}
+                      >
+                        {jobCount === 0 ? null : jobCount}
+                      </span>
+                    ) : null}
+                  </div>
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </>
   );

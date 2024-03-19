@@ -7,6 +7,7 @@ import AustraliaPng from "../assets/continents-quick/australia.png";
 import EuropePng from "../assets/continents-quick/europe.png";
 import NorthAmericaPng from "../assets/continents-quick/north-america.png";
 import SouthAmericaPng from "../assets/continents-quick/south-america.png";
+import Header from "../components/Header";
 
 interface ICountryData {
   [key: string]: number;
@@ -65,33 +66,36 @@ export const ContinentPage = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative" }}>
-      <img
-        src={getCurrentContinent()}
-        style={{
-          position: "fixed",
-          top: "0",
-          left: "0",
-          zIndex: "-1",
-          width: "40%",
-          opacity: "0.3",
-        }}
-        alt={continent}
-      />
-      <div>
-        <h1>{continent}</h1>
-        <ul style={{ listStyle: "none" }}>
-          {Object.keys(countries).map((country, index) => {
-            return (
-              <li key={index}>
-                <Link to={`/${continent}/${country}`}>
-                  {country}: {countries[country]}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+    <>
+      <Header />
+      <div style={{ position: "relative" }}>
+        <img
+          src={getCurrentContinent()}
+          style={{
+            position: "fixed",
+            top: "0",
+            left: "0",
+            zIndex: "-1",
+            width: "40%",
+            opacity: "0.3",
+          }}
+          alt={continent}
+        />
+        <div>
+          <h1>{continent}</h1>
+          <ul style={{ listStyle: "none" }}>
+            {Object.keys(countries).map((country, index) => {
+              return (
+                <li key={index}>
+                  <Link to={`/${continent}/${country}`}>
+                    {country}: {countries[country]}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
