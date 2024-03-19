@@ -2,22 +2,22 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
-import { JobsOnContinents } from "./routes/JobsOnContinents.tsx";
-import { JobsOnContinent } from "./routes/JobsOnContinent.tsx";
-import { JobsOnCountry } from "./routes/JobsOnCountry.tsx";
+import { Home } from "./routes/Home.tsx";
+import { ContinentPage } from "./routes/ContinentPage.tsx";
+import { CountryFeed } from "./routes/CountryFeed.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <JobsOnContinents />,
+    element: <Home />,
   },
   {
     path: "/:continent",
-    element: <JobsOnContinent />,
+    element: <ContinentPage />,
   },
   {
     path: "/:continent/:country",
-    element: <JobsOnCountry />,
+    element: <CountryFeed />,
   },
 ]);
 

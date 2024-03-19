@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-export const JobsOnCountry = () => {
+export const CountryFeed = () => {
   const location = useLocation();
   const [countryFeed, setCountryFeed] = useState([]);
 

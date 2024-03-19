@@ -12,7 +12,7 @@ interface ICountryData {
   [key: string]: number;
 }
 
-export const JobsOnContinent = () => {
+export const ContinentPage = () => {
   const location = useLocation();
   const [countries, setCountries] = useState<ICountryData>({});
 

@@ -8,44 +8,44 @@ import EuropePng from "../assets/continents-quick/europe.png";
 import NorthAmericaPng from "../assets/continents-quick/north-america.png";
 import SouthAmericaPng from "../assets/continents-quick/south-america.png";
 
-export const JobsOnContinents = () => {
+const CONTINENTS = [
+  {
+    continent: "North America",
+    route: "/north-america",
+    image: NorthAmericaPng,
+  },
+  {
+    continent: "Europe",
+    route: "/europe",
+    image: EuropePng,
+  },
+  {
+    continent: "Asia",
+    route: "/asia",
+    image: AsiaPng,
+  },
+  {
+    continent: "South America",
+    route: "/south-america",
+    image: SouthAmericaPng,
+  },
+
+  {
+    continent: "Africa",
+    route: "/africa",
+    image: AfricaPng,
+  },
+  {
+    continent: "Australia",
+    route: "/australia",
+    image: AustraliaPng,
+  },
+];
+
+export const Home = () => {
   const [jobsCount, setJobsCount] = useState<Record<string, number> | null>(
     null
   );
-
-  const continentsArr = [
-    {
-      continent: "North America",
-      route: "/north-america",
-      image: NorthAmericaPng,
-    },
-    {
-      continent: "Europe",
-      route: "/europe",
-      image: EuropePng,
-    },
-    {
-      continent: "Asia",
-      route: "/asia",
-      image: AsiaPng,
-    },
-    {
-      continent: "South America",
-      route: "/south-america",
-      image: SouthAmericaPng,
-    },
-
-    {
-      continent: "Africa",
-      route: "/africa",
-      image: AfricaPng,
-    },
-    {
-      continent: "Australia",
-      route: "/australia",
-      image: AustraliaPng,
-    },
-  ];
 
   const fetcherJobsCount = async () => {
     try {
@@ -87,7 +87,7 @@ export const JobsOnContinents = () => {
           gap: "3rem",
         }}
       >
-        {continentsArr.map((continentObj) => (
+        {CONTINENTS.map((continentObj) => (
           <li key={continentObj.route}>
             <div style={{ marginBottom: "2rem", textAlign: "center" }}>
               {continentObj.continent}
@@ -98,6 +98,7 @@ export const JobsOnContinents = () => {
                   src={continentObj.image}
                   alt={continentObj.continent}
                   width={230}
+                  style={{opacity: jobsCount ? 1 : 0.2 }}
                 />
                 {jobsCount ? (
                   <span
@@ -114,7 +115,7 @@ export const JobsOnContinents = () => {
                       transform: "translate(-35%, -30%)",
                     }}
                   >
-                    {jobsCount[continentObj.route.split("/")[1]] || 0}
+                    {jobsCount[continentObj.route.split("/")[1]]}
                   </span>
                 ) : null}
               </div>
