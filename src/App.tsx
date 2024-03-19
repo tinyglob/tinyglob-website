@@ -27,6 +27,9 @@ function App() {
     fetcherJobsCount()
       .then((data) => setJobsCount(data))
       .catch((error) => console.error("Error fetching data:", error));
+
+
+    // fetch('https://ipapi.co/json/').then(response => response.json()).then(data => console.log(data.continent_code));
   }, []);
 
   return <Continents jobsCount={jobsCount} />;

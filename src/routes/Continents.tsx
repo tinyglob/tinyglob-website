@@ -19,25 +19,25 @@ export const Continents = ({ jobsCount }: IContinents) => {
       image: NorthAmericaPng,
     },
     {
-      continent: "South America",
-      route: "/south-america",
-      image: SouthAmericaPng,
-    },
-    {
       continent: "Europe",
       route: "/europe",
       image: EuropePng,
+    },
+    {
+      continent: "Asia",
+      route: "/asia",
+      image: AsiaPng,
+    },
+    {
+      continent: "South America",
+      route: "/south-america",
+      image: SouthAmericaPng,
     },
 
     {
       continent: "Africa",
       route: "/africa",
       image: AfricaPng,
-    },
-    {
-      continent: "Asia",
-      route: "/asia",
-      image: AsiaPng,
     },
     {
       continent: "Australia",
@@ -50,17 +50,16 @@ export const Continents = ({ jobsCount }: IContinents) => {
     <>
       <h2>TinyGlob</h2>
       <br />
-      <ul
-        style={{
-          listStyleType: "none",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-          margin: "0 auto",
-          maxWidth: "1000px",
-          gap: "3rem",
-          padding: "0",
-        }}
-      >
+      <ul style={{
+        display: "flex",
+        flexWrap: "wrap",
+        maxWidth: "800px",
+        margin: "0 auto",
+        justifyContent: "center",
+        listStyle: "none",
+        padding: "0",
+        gap: "3rem",
+      }}>
         {continentsArr.map((continentObj) => (
           <li key={continentObj.route}>
             <div style={{ marginBottom: "2rem", textAlign: "center" }}>
@@ -71,7 +70,7 @@ export const Continents = ({ jobsCount }: IContinents) => {
                 <img
                   src={continentObj.image}
                   alt={continentObj.continent}
-                  width={300}
+                  width={230}
                 />
                 {jobsCount ? (
                   <span
