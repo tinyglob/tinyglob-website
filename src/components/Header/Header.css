@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.3rem 1.5rem;
+  top: 0;
+  box-shadow: 1px 0px 5px #ddd;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #111;
+}
+
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-title {
+  font-weight: bold;
+}

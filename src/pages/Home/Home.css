@@ -1,0 +1,48 @@
+.home-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.home-list-of-continents {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 850px;
+  margin: 0 auto;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.home-continent {
+  transition: all .5s;
+}
+
+.home-continent:hover {
+  transform: scale(1.05);
+}
+
+.home-continent-wrapper {
+  position: relative;
+}
+
+.home-continent-title {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.home-continent-job-count {
+  position: absolute;
+  text-align: center;
+  background-color: #e0e0e0;
+  box-shadow: 30px 30px 29px #a8a8a8 -30px -30px 29px #ffffff;
+  width: 25px;
+  border-radius: 50px;
+  top: 35%;
+  left: 30%;
+  transform: translate(-35%, -30%);
+  color: #111;
+  font-size: 1rem;
+}

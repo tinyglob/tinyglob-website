@@ -2,9 +2,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
-import { Home } from "./routes/Home.tsx";
-import { ContinentPage } from "./routes/ContinentPage.tsx";
-import { CountryFeed } from "./routes/CountryFeed.tsx";
+import { Home } from "./pages/Home/Home.tsx";
+import { ContinentPage } from "./pages/ContinentPage/ContinentPage.tsx";
+import { CountryFeed } from "./pages/CountryFeed/CountryFeed.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,14 @@ const router = createBrowserRouter([
   {
     path: "/:continent/:country",
     element: <CountryFeed />,
+  },
+  {
+    path: "/login",
+    element: <p>Login</p>,
+  },
+  {
+    path: "/signup",
+    element: <p>Login</p>,
   },
 ]);
 
