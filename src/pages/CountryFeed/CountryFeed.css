@@ -2,5 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 100vh; */
+}
+
+.job-post {
+  display: flex;
+  background-color: antiquewhite;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  gap: 1rem;
 }
