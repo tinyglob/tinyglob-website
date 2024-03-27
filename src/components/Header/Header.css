@@ -1,11 +1,16 @@
 .header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 1px 0px 3px #ddd;
+}
+
+.header-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  padding: 0.3rem 1.5rem;
-  top: 0;
-  box-shadow: 1px 0px 5px #ddd;
+  padding: 0.5rem 1.5rem;
 }
 
 .header a {

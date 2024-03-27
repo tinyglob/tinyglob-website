@@ -2,14 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  height: 100%;
 }
 
 .home-list-of-continents {
   display: flex;
   flex-wrap: wrap;
-  max-width: 850px;
-  margin: 0 auto;
+  align-items: flex-start;
   justify-content: center;
   list-style: none;
   padding: 0;
@@ -21,7 +22,10 @@
 }
 
 .home-continent:hover {
-  transform: scale(1.05);
+  .home-continent-job-count {
+    background-color: #111;
+    color: #fff;
+  }
 }
 
 .home-continent-wrapper {
@@ -34,6 +38,7 @@
 }
 
 .home-continent-job-count {
+  transition: all .3s;
   position: absolute;
   text-align: center;
   background-color: #e0e0e0;

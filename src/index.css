@@ -28,7 +28,7 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 4rem 1rem;
 }
 
 .pointer-dot {

@@ -1,0 +1,25 @@
+.continent-flex {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.continent-wrapper {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.continent-jobs-list {
+  list-style: none;
+}
+
+.continent-jobs-list li {
+  margin-bottom: 1rem;
+}
+
+.continent-jobs-list li a {
+  text-decoration: none;
+  color: #111;
+}

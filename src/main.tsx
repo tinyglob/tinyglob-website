@@ -3,10 +3,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import { Home } from "./pages/Home/Home.tsx";
-import { ContinentPage } from "./pages/ContinentPage/ContinentPage.tsx";
-import { CountryFeed } from "./pages/CountryFeed/CountryFeed.tsx";
+import { Continent } from "./pages/Continent/Continent.tsx";
+import { JobsFeed } from "./pages/JobsFeed/JobsFeed.tsx";
 import SignUp from "./pages/SignUp/SignUp.tsx";
-import Login from "./pages/Login/Login.tsx";
+import LogIn from "./pages/LogIn/LogIn.tsx";
 
 const router = createBrowserRouter([
   {
@@ -15,15 +15,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/:continent",
-    element: <ContinentPage />,
+    element: <Continent />,
   },
   {
     path: "/:continent/:country",
-    element: <CountryFeed />,
+    element: <JobsFeed />,
   },
   {
     path: "/login",
-    element: <Login/>
+    element: <LogIn/>
   },
   {
     path: "/signup",

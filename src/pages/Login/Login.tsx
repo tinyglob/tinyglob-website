@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from '../../components/Header/Header';
 import { PRODUCTION_API_URL } from '../../constants';
 
-const Login = () => {
+const LogIn = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -53,12 +53,12 @@ const Login = () => {
     <>
       <Header />
       <div className='container'>
-        <h1>Login</h1>
+        <h1>Log In</h1>
         {status === 'success' && (
-          <p style={{ color: 'green' }}>Login successful!</p>
+          <p style={{ color: 'green' }}>Log In successful!</p>
         )}
         {status === 'error' && (
-          <p style={{ color: 'red' }}>Login failed. Please try again.</p>
+          <p style={{ color: 'red' }}>Log In failed. Please try again.</p>
         )}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -69,11 +69,11 @@ const Login = () => {
             <label htmlFor="password">Password:</label>
             <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">Log In</button>
         </form>
       </div>
     </>
   );
 };
 
-export default Login;
+export default LogIn;

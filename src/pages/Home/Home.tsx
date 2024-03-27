@@ -12,11 +12,11 @@ export const Home = () => {
     <>
       <Header />
       <div className="home-wrapper">
-        {isLoading ? <p>...</p> : (
+        {isLoading ? <p>. . .</p> : (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
           >
             <ul className="home-list-of-continents container">
               {CONTINENTS.map((continent) => {
@@ -32,7 +32,7 @@ export const Home = () => {
                         style={{ opacity: jobCount === 0 ? 0.2 : 1 }}
                         src={continent.image}
                         alt={continent.name}
-                        width={230}
+                        width={150}
                       />
                     ) : (
                       <Link to={continent.route}>
@@ -40,7 +40,7 @@ export const Home = () => {
                           <img
                             src={continent.image}
                             alt={continent.name}
-                            width={230}
+                            width={150}
                           />
                           <span className="home-continent-job-count">
                             {jobCount === 0 ? null : jobCount}

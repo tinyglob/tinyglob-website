@@ -1,9 +1,9 @@
-import AfricaPng from '../assets/continents-quick/africa.png';
-import AsiaPng from '../assets/continents-quick/asia.png';
-import AustraliaPng from '../assets/continents-quick/australia.png';
-import EuropePng from '../assets/continents-quick/europe.png';
-import NorthAmericaPng from '../assets/continents-quick/north-america.png';
-import SouthAmericaPng from '../assets/continents-quick/south-america.png';
+import AfricaPng from '../assets/continents/africa.png';
+import AsiaPng from '../assets/continents/asia.png';
+import AustraliaPng from '../assets/continents/australia.png';
+import EuropePng from '../assets/continents/europe.png';
+import NorthAmericaPng from '../assets/continents/north-america.png';
+import SouthAmericaPng from '../assets/continents/south-america.png';
 
 export const PRODUCTION_API_URL =
   'https://tinyglob-backend-production.up.railway.app';

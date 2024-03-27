@@ -1,11 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import './CountryFeed.css';
+import './JobsFeed.css';
 import { motion } from 'framer-motion';
 import useFetchJobsForCountry from '../../hooks/useFetchJobsForCountry';
 import { IJobItem } from '../../types';
 
-export const CountryFeed = () => {
+export const JobsFeed = () => {
   const location = useLocation();
   const country = location.pathname.split('/')[2].toLocaleLowerCase();
 
@@ -15,6 +15,7 @@ export const CountryFeed = () => {
     <>
       <Header />
       <div className="container">
+        <h1>JOBS</h1>
         <div className="country-feed-loader">{isLoading && <p>...</p>}</div>
         {countryFeed.map((job: IJobItem) => {
           console.log(job);
@@ -23,7 +24,7 @@ export const CountryFeed = () => {
               key={job.title}
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               <div className='job-post'>
                 <div>
@@ -31,7 +32,7 @@ export const CountryFeed = () => {
                     <h2>{job.title}</h2>
                   </div>
                   <video loop muted controls height={400} width={400}>
-                    <source src="/public/costco.mp4" type="video/mp4" />
+                    <source src="/costco.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div>
