@@ -16,7 +16,3 @@ export interface IJobItem {
   posted_date: string;
   deadline_date: string;
 }
-
-export interface ICountryData {
-  [key: string]: number;
-}

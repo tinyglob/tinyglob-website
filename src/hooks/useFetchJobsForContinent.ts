@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { PRODUCTION_API_URL } from '../constants';
-import { ICountryData } from "../types";
+import { IJobItem } from "../types";
 
 const useFetchJobsForContinent = (continent: string) => {
-  const [jobsOnContinent, setJobsOnContinent] = useState<ICountryData | null>(null);
+  const [jobsOnContinent, setJobsOnContinent] = useState<IJobItem[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

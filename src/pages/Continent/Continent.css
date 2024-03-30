@@ -1,18 +1,11 @@
 .continent-flex {
   padding-top: 2rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.continent-wrapper {
-  display: flex;
-  /* flex-wrap: wrap; */
 }
 
 .continent-jobs-list {
-  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .continent-jobs-list li {
