@@ -4,15 +4,41 @@
 
 .continent-jobs-list {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 15px;
 }
 
-.continent-jobs-list li {
-  margin-bottom: 1rem;
-}
+.continent-job {
+  align-items: center;
+  overflow: hidden;
 
-.continent-jobs-list li a {
+  border-radius: 3%;
   text-decoration: none;
-  color: #111;
+  aspect-ratio: 350 / 400;
+  position: relative;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+  width: 85%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px 3px;
+  margin: 0;
+  padding: 10px;
+  color: black;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.card-info h3 {
+  margin: 0;
+}
+
+.card-info p {
+  margin: 0;
 }
