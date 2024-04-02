@@ -6,7 +6,7 @@ import { Home } from "./pages/Home/Home.tsx";
 import { Continent } from "./pages/Continent/Continent.tsx";
 import { JobsFeed } from "./pages/JobsFeed/JobsFeed.tsx";
 import SignUp from "./pages/SignUp/SignUp.tsx";
-import LogIn from "./pages/Login/Login.tsx";
+import LogIn from "./pages/LogIn/LogIn.tsx";
 
 const router = createBrowserRouter([
   {
