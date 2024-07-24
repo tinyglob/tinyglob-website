@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import CardImage from "../../assets/continents-countries/test-image.avif";
@@ -13,8 +12,6 @@ export const Continent = () => {
   const location = useLocation();
   const continent = location.pathname.split("/")[1];
   const { jobsOnContinent, isLoading } = useFetchJobsForContinent(continent);
-  const [currentJobIndex, setCurrentJobIndex] = useState(0); // need to create the logic to scroll card-info/list of jobs inside the continent-job
-
   const groupedJobs: { [key: string]: IJobItem[] } = {};
 
   if (jobsOnContinent) {
@@ -46,36 +43,38 @@ export const Continent = () => {
                 <div className="continent-jobs-list">
                   {Object.entries(groupedJobs).map(([country, jobs]) => (
                     <div key={country} className="country-jobs">
-                      <Link
-                        to={`/job/${jobs[currentJobIndex].job_id}`}
-                        key={jobs[currentJobIndex].job_id}
-                        className="continent-job"
-                      >
-                        <img
-                          src={CardImage}
-                          alt="image"
-                          width={350}
-                          style={{ borderRadius: "15px" }}
-                        />
-                        <div className="card-info">
-                          <h3 style={{ textAlign: "center" }}>
-                            {formatCountryName(jobs[currentJobIndex].country)}
-                          </h3>
-                          <div style={{ display: "flex" }}>
-                            <p>{jobs[currentJobIndex].title} at</p>
-                            <p style={{ color: "#187498", fontWeight: 600 }}>
-                              &nbsp;{jobs[currentJobIndex].city}
-                            </p>
+                      <h2>{formatCountryName(country)}</h2>
+                      {jobs.map((job) => (
+                        <Link
+                          to={`/job/${job.job_id}`}
+                          key={job.job_id}
+                          className="continent-job"
+                        >
+                          <img
+                            src={CardImage}
+                            alt="image"
+                            width={350}
+                            style={{ borderRadius: "15px" }}
+                          />
+                          <div className="card-info">
+                            <h3 style={{ textAlign: "center" }}>
+                              {job.title}
+                            </h3>
+                            <div style={{ display: "flex" }}>
+                              <p>{job.title} at</p>
+                              <p style={{ color: "#187498", fontWeight: 600 }}>
+                                &nbsp;{job.city}
+                              </p>
+                            </div>
+                            <div style={{ display: "flex" }}>
+                              <img src={Logo} alt="coin" width={22} />
+                              <p>
+                                {job.start_salary} - {job.end_salary}
+                              </p>
+                            </div>
                           </div>
-                          <div style={{ display: "flex" }}>
-                            <img src={Logo} alt="coin" width={22} />
-                            <p>
-                              {jobs[currentJobIndex].start_salary} -{" "}
-                              {jobs[currentJobIndex].end_salary}
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
+                        </Link>
+                      ))}
                     </div>
                   ))}
                 </div>
